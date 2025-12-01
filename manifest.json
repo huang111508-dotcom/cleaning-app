@@ -1,0 +1,21 @@
+{
+  "name": "龙城店清洁计划",
+  "short_name": "清洁计划",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f3f4f6",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2059/2059806.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2059/2059806.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
