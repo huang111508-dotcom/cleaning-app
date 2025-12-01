@@ -15,19 +15,6 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS will be injected by Vite/Tailwind build -->
-    <style>
-      @tailwind base;
-      @tailwind components;
-      @tailwind utilities;
-
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f3f4f6;
-        -webkit-tap-highlight-color: transparent;
-      }
-    </style>
   <script type="importmap">
 {
   "imports": {
@@ -46,18 +33,5 @@
     <div id="root"></div>
     <!-- Point to the entry file for Vite -->
     <script type="module" src="/index.tsx"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('./sw.js')
-            .then(registration => {
-              console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-              console.log('SW registration failed: ', registrationError);
-            });
-        });
-      }
-    </script>
   </body>
 </html>
