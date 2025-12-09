@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AreaPositions, CleaningDataMap, PlanData, Language } from './types';
-import { POSITIONS, CLEANING_DATA_ZH, CLEANING_DATA_EN } from './constants';
+// 注意：这里引入了新加的翻译字典 AREA_TRANSLATIONS 和 DAY_TRANSLATIONS
+import { POSITIONS, CLEANING_DATA_ZH, CLEANING_DATA_EN, AREA_TRANSLATIONS, DAY_TRANSLATIONS } from './constants';
 import { Calendar, CheckCircle2, Globe, LayoutGrid, Search, AlertCircle } from 'lucide-react';
 
 const Header: React.FC<{ language: Language; onToggleLanguage: () => void }> = ({
@@ -59,7 +60,8 @@ const FilterSection: React.FC<{
               <option value="">{isZh ? '请选择 / Please select' : 'Please select'}</option>
               {Object.keys(POSITIONS).map((key) => (
                 <option key={key} value={key}>
-                  {key}
+                  {/* 核心修改：如果是英文模式，去查翻译字典；查不到就显示原文 */}
+                  {isZh ? key : (AREA_TRANSLATIONS[key] || key)}
                 </option>
               ))}
             </select>
@@ -116,13 +118,12 @@ const FilterSection: React.FC<{
             className="w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md border"
           >
             <option value="">{isZh ? '请选择 / Please select' : 'Please select'}</option>
-            <option value="周日">{isZh ? '周日 / Sunday' : 'Sunday'}</option>
-            <option value="周一">{isZh ? '周一 / Monday' : 'Monday'}</option>
-            <option value="周二">{isZh ? '周二 / Tuesday' : 'Tuesday'}</option>
-            <option value="周三">{isZh ? '周三 / Wednesday' : 'Wednesday'}</option>
-            <option value="周四">{isZh ? '周四 / Thursday' : 'Thursday'}</option>
-            <option value="周五">{isZh ? '周五 / Friday' : 'Friday'}</option>
-            <option value="周六">{isZh ? '周六 / Saturday' : 'Saturday'}</option>
+            {/* 核心修改：使用翻译字典生成下拉选项 */}
+            {Object.entries(DAY_TRANSLATIONS).map(([zhKey, enVal]) => (
+                <option key={zhKey} value={zhKey}>
+                   {isZh ? `${zhKey} / ${enVal}` : enVal}
+                </option>
+            ))}
           </select>
         </div>
       </div>
@@ -173,17 +174,18 @@ const App: React.FC = () => {
 
   const toggleLanguage = () => setLanguage((prev) => (prev === 'zh' ? 'en' : 'zh'));
 
-  // Logic to process weekly data (sometimes weekly tasks depend on monthly data)
+  // Logic to process weekly data
   const getWeeklyContent = () => {
     if (!positionData) return '';
     let content = positionData.weekly;
-    // Check if we need to append specific monthly task for the day to the weekly view
-    // This replicates the original HTML logic logic
+    
+    // 核心修改：在追加月度任务时，把“周一”翻译成“Monday”
     if (week && day && positionData.monthly && typeof positionData.monthly !== 'string') {
         const monthlyTask = positionData.monthly[week]?.[day];
         if (monthlyTask) {
              const label = language === 'zh' ? '月清任务' : 'Monthly Task';
-             content += `<br><br><strong>${day} ${label}:</strong> ${monthlyTask}`;
+             const displayDay = language === 'zh' ? day : (DAY_TRANSLATIONS[day] || day);
+             content += `<br><br><strong>${displayDay} ${label}:</strong> ${monthlyTask}`;
         }
     }
     return content || (language === 'zh' ? '无每周清洁计划' : 'No weekly cleaning plan');
@@ -196,7 +198,9 @@ const App: React.FC = () => {
           const header = language === 'zh' ? `第${week}周月清计划:` : `Week ${week} Monthly Plan:`;
           let html = `<strong>${header}</strong><br>`;
           Object.entries(positionData.monthly[week]).forEach(([d, task]) => {
-              html += `${d}: ${task}<br>`;
+              // 核心修改：在列表显示时，把“周一”翻译成“Monday”
+              const displayDay = language === 'zh' ? d : (DAY_TRANSLATIONS[d] || d);
+              html += `${displayDay}: ${task}<br>`;
           });
           return html;
       }
