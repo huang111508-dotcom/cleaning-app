@@ -3,7 +3,7 @@ import { AreaPositions, CleaningDataMap } from './types';
 export const POSITIONS: AreaPositions = {
   "后勤区": [
       { id: "夜班保洁", name: "夜班保洁", enName: "Night Shift Cleaning" },
-      { id: "早班保洁保洁", name: "早班保洁", enName: "Morning Shift Cleaning" },
+      { id: "早班保洁", name: "早班保洁", enName: "Morning Shift Cleaning" },
       { id: "专项保洁", name: "专项保洁", enName: "Special Cleaning" },
       { id: "保洁晚班保洁", name: "晚班保洁", enName: "Evening Shift Cleaning" },
       { id: "外送", name: "外送员", enName: "Delivery Staff" },
@@ -69,7 +69,7 @@ export const CLEANING_DATA_ZH: CleaningDataMap = {
           "4": "重复第二周细则"
       }
   },
-  "早班保洁保洁": {
+  "早班保洁": {
       daily: "早班保洁7:00-18:00：<br>7:00外围清洁：走廊、广场、垃圾站、大树底下，扫地、拖地；<br>8:00开始循环清洁（参考保洁员SOP）：<br>广场→入口（包括购物车购物篮）→右边走廊→右边主通道→2号台及粮油通道 →食品区通道→ 3号、4号收银机台→冰品区→转盘区走廊→百货区→卫生间→卫生巾、纸巾、米粉区副通道→入口（包括购物车购物篮）→左边走廊→1号台5号台 →干货和冻品区主通道（含半圆垃圾桶、果切区）→蔬果区→水产区→肉品区→调料区→熟食烘焙区（含半圆垃圾桶）→ 饮料区→回到广场、入口，继续下一循环<br>*清洁工具：腰包及腰包工具：小铲子，抹布，垃圾袋，喷壶，一次性手套，熟悉使用扫，拖，洗地机，吸尘器）<br>考核重点：眼睛所及不能有任何脏污、垃圾杂物；",
       dailyDetails: "1、外围清洁：7:00开始使用扫把打扫停车场这边的走廊、4棵树之间的广场、4棵树的树底下、垃圾站，把垃圾杂物打扫干净；停车场这边外围打扫完后，约7:30开始使用扫把打扫转盘这边的走廊及走廊外的广场区域，把垃圾杂物打扫干净；月7:40使用大拖把拖扫转盘走廊地面，然后越7:50拖把拖扫前门走廊的地面；<br>2、8:00准备洗地机，换水、添加洗洁精；准备就绪后使用洗地机刷洗全店卖场地面，清洁顺序：2号台及粮油通道 →食品区通道→ 3号、4号收银机台→冰品区→百货区→卫生巾、纸巾、米粉区副通道→蔬果区→水产区→肉品区→调料区→熟食烘焙→饮料区→1号台5号台 →；洗地机用完后对洗地机进行清洁，换水，然后放回指定位置；<br>3、循环清洁：随身带普通拖把、小垃圾铲和小扫把，腰包及腰包工具：小铲子，小刷子、牙刷、蓝色抹布（非食品接触面清洁）、垃圾袋，喷壶（洗洁精水）、5片酒精消毒湿巾（独立包装单片装）、一次性手套、指甲剪；按循环清洁顺序进行循环清洁作业。",
       weekly: "\\",
@@ -198,7 +198,7 @@ export const CLEANING_DATA_EN: CleaningDataMap = {
           "4": "Repeat Week 2 details"
       }
   },
-  "早班保洁保洁": {
+  "早班保洁": {
       daily: "Morning shift cleaning 7:00-18:00:<br>7:00 Peripheral cleaning: Corridors, square, garbage station, under big trees, sweep floor, mop floor;<br>8:00 Start cycle cleaning (refer to cleaner SOP):<br>Square → Entrance (including shopping carts and baskets) → Right corridor → Right main aisle → Counter 2 and grain & oil aisle → Food area aisle → Counters 3, 4 cashier machines → Ice products area → Turntable area corridor → General merchandise area → Restroom → Sanitary napkins, tissue, rice noodles area secondary aisle → Entrance (including shopping carts and baskets) → Left corridor → Counters 1, 5 → Dry goods and frozen food main aisle (including semi-circular trash cans, fruit cutting area) → Fruit and vegetable area → Aquatic area → Meat area → Seasoning area → Cooked food and bakery area (including semi-circular trash cans) → Beverage area → Return to square, entrance, continue next cycle<br>*Cleaning tools: Waist bag and waist bag tools: small shovel, cloth, garbage bag, spray bottle, disposable gloves, familiar with using broom, mop, floor scrubber, vacuum cleaner)<br>Assessment focus: No dirt, garbage or debris should be visible to the eye;",
       dailyDetails: "1. Peripheral cleaning: Start at 7:00 using broom to sweep corridor on parking lot side, square between 4 trees, under 4 trees, garbage station, clean garbage and debris; After peripheral cleaning on parking lot side is done, around 7:30 start using broom to sweep corridor on turntable side and square area outside corridor, clean garbage and debris; Around 7:40 use large mop to mop turntable corridor floor, then around 7:50 mop front door corridor floor;<br>2. 8:00 Prepare floor scrubber, change water, add detergent; After preparation, use floor scrubber to brush entire store floor, cleaning order: Counter 2 and grain & oil aisle → Food area aisle → Counters 3, 4 cashier machines → Ice products area → General merchandise area → Sanitary napkins, tissue, rice noodles area secondary aisle → Fruit and vegetable area → Aquatic area → Meat area → Seasoning area → Cooked food and bakery → Beverage area → Counters 1, 5 →; After using floor scrubber, clean floor scrubber, change water, then put back to designated position;<br>3. Cycle cleaning: Carry ordinary mop, small garbage shovel and small broom, waist bag and waist bag tools: small shovel, small brush, toothbrush, blue cloth (non-food contact surface cleaning), garbage bag, spray bottle (detergent water), 5 alcohol disinfectant wipes (individually packaged single pieces), disposable gloves, nail clippers; Perform cycle cleaning operations according to cycle cleaning order.",
       weekly: "\\",
@@ -278,4 +278,21 @@ export const CLEANING_DATA_EN: CleaningDataMap = {
       monthly: "",
       monthlyDetails: ""
   }
+};
+
+export const AREA_TRANSLATIONS: { [key: string]: string } = {
+  "后勤区": "Logistics Area",
+  "生鲜区": "Fresh Area",
+  "食百区": "Food & Non-food Area",
+  "收银组": "Cashier Group"
+};
+
+export const DAY_TRANSLATIONS: { [key: string]: string } = {
+  "周一": "Monday",
+  "周二": "Tuesday",
+  "周三": "Wednesday",
+  "周四": "Thursday",
+  "周五": "Friday",
+  "周六": "Saturday",
+  "周日": "Sunday"
 };
